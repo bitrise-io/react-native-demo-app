@@ -60,6 +60,11 @@ workflows:
         - automatic_code_signing: api-key
     - deploy-to-bitrise-io@2: { }
 
+trigger_map:
+- pull_request_source_branch: "*"
+  workflow: primary
+  pull_request_target_branch: main
+
 meta:
   bitrise.io:
     stack: osx-xcode-13.2.x
