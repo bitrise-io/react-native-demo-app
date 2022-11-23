@@ -81,10 +81,10 @@ app:
     VARIANT: Debug
   - opts:
       is_expand: false
-    BITRISE_PROJECT_PATH: ios/ReactNativeSampleApp.xcworkspace
+    BITRISE_PROJECT_PATH: ios/BitriseReactNativeSample.xcworkspace
   - opts:
       is_expand: false
-    BITRISE_SCHEME: ReactNativeSampleApp
+    BITRISE_SCHEME: BitriseReactNativeSample
   - opts:
       is_expand: false
     BITRISE_DISTRIBUTION_METHOD: development

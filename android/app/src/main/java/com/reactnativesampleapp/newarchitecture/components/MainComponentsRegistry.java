@@ -1,4 +1,4 @@
-package com.reactnativesampleapp.newarchitecture.components;
+package com.BitriseReactNativeSample.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;
