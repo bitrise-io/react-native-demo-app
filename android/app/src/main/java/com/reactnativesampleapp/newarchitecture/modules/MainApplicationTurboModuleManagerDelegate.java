@@ -1,4 +1,4 @@
-package com.BitriseReactNativeSample.newarchitecture.modules;
+package com.bitrisereactnativesample.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

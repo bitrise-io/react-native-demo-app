@@ -1,4 +1,4 @@
-package com.BitriseReactNativeSample;
+package com.bitrisereactnativesample;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

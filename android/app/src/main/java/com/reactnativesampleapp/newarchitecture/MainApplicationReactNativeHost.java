@@ -1,4 +1,4 @@
-package com.BitriseReactNativeSample.newarchitecture;
+package com.bitrisereactnativesample.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.BitriseReactNativeSample.BuildConfig;
-import com.BitriseReactNativeSample.newarchitecture.components.MainComponentsRegistry;
-import com.BitriseReactNativeSample.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.bitrisereactnativesample.BuildConfig;
+import com.bitrisereactnativesample.newarchitecture.components.MainComponentsRegistry;
+import com.bitrisereactnativesample.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
