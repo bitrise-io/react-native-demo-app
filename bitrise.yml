@@ -14,13 +14,13 @@ workflows:
     steps:
     - activate-ssh-key@4: { }
     - git-clone@6: { }
-    - yarn@0:
+    - restore-npm-cache@1: { }
+    - npm@1:
         inputs:
-        - workdir: $WORKDIR
         - command: install
-    - yarn@0:
+    - save-npm-cache@1: { }
+    - npm@1:
         inputs:
-        - workdir: $WORKDIR
         - command: test
     - deploy-to-bitrise-io@2: { }
 
@@ -34,13 +34,13 @@ workflows:
     steps:
     - activate-ssh-key@4: { }
     - git-clone@6: { }
-    - yarn@0:
+    - restore-npm-cache@1: { }
+    - npm@1:
         inputs:
-        - workdir: $WORKDIR
         - command: install
-    - yarn@0:
+    - save-npm-cache@1: { }
+    - npm@1:
         inputs:
-        - workdir: $WORKDIR
         - command: test
     - install-missing-android-tools@3:
         inputs:
