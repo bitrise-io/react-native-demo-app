@@ -6,42 +6,29 @@ project_type: react-native
 workflows:
 
   primary:
-    description: |
-      Runs tests.
-
-      Next steps:
-      - Check out [Getting started with React Native apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-react-native-apps.html).
-    steps:
-    - activate-ssh-key@4: { }
-    - git-clone@6: { }
-    - restore-npm-cache@1: { }
-    - npm@1:
-        inputs:
-        - command: install
-    - save-npm-cache@1: { }
-    - npm@1:
-        inputs:
-        - command: test
-    - deploy-to-bitrise-io@2: { }
+    description: Runs tests.
+    before_run:
+    - _setup
+    - _test
+    after_run:
+    - _teardown
 
   deploy:
-    description: |
-      Tests, builds and deploys the app using *Deploy to bitrise.io* Step.
-
-      Next steps:
-      - Set up an [Apple service with API key](https://devcenter.bitrise.io/en/accounts/connecting-to-services/connecting-to-an-apple-service-with-api-key.html).
-      - Check out [Getting started with React Native apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-react-native-apps.html).
+    description: Tests, builds and deploys the app using *Deploy to bitrise.io* Step.
+    before_run:
+    - _setup
+    - _test
+    after_run:
+    - _teardown
     steps:
-    - activate-ssh-key@4: { }
-    - git-clone@6: { }
-    - restore-npm-cache@1: { }
-    - npm@1:
+    - git::https://github.com/bitrise-steplib/steps-react-native-bundle.git@use-npx-react-native-if-available:
         inputs:
-        - command: install
-    - save-npm-cache@1: { }
-    - npm@1:
+        - platform: ios
+        - entry_file: index.js
+    - git::https://github.com/bitrise-steplib/steps-react-native-bundle.git@use-npx-react-native-if-available:
         inputs:
-        - command: test
+        - platform: android
+        - entry_file: index.js
     - install-missing-android-tools@3:
         inputs:
         - gradlew_path: $PROJECT_LOCATION/gradlew
@@ -58,6 +45,25 @@ workflows:
         - distribution_method: $BITRISE_DISTRIBUTION_METHOD
         - configuration: Release
         - automatic_code_signing: api-key
+
+  _setup:
+    steps:
+    - activate-ssh-key@4: { }
+    - git-clone@6: { }
+    - restore-npm-cache@1: { }
+    - npm@1:
+        inputs:
+        - command: install
+    - save-npm-cache@1: { }
+
+  _test:
+    steps:
+    - npm@1:
+        inputs:
+        - command: test
+
+  _teardown:
+    steps:
     - deploy-to-bitrise-io@2: { }
 
 trigger_map:
