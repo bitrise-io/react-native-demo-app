@@ -15,7 +15,7 @@ workflows:
 
   deploy:
     after_run:
-    - _deploy-ios
+    # - _deploy-ios
     - _deploy-android
 
   _deploy-ios:
@@ -85,7 +85,7 @@ workflows:
 
 trigger_map:
 - pull_request_source_branch: "*"
-  workflow: primary
+  workflow: deploy
   pull_request_target_branch: main
 
 app:
