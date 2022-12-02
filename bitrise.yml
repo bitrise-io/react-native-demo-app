@@ -14,7 +14,12 @@ workflows:
     - _teardown
 
   deploy:
-    description: Tests, builds and deploys the app using *Deploy to bitrise.io* Step.
+    after_run:
+    - _deploy-ios
+    - _deploy-android
+
+  _deploy-ios:
+    description: Tests, builds and deploys the iOS version of the app using *Deploy to bitrise.io* Step.
     before_run:
     - _setup
     - _test
@@ -25,6 +30,26 @@ workflows:
         inputs:
         - platform: ios
         - entry_file: index.js
+    - cocoapods-install@2: { }
+    - xcode-archive@4:
+        inputs:
+        - project_path: $BITRISE_PROJECT_PATH
+        - scheme: $BITRISE_SCHEME
+        - distribution_method: $BITRISE_DISTRIBUTION_METHOD
+        - configuration: Release
+        - automatic_code_signing: api-key
+
+  _deploy-android:
+    description: Tests, builds and deploys the app using *Deploy to bitrise.io* Step.
+    meta:
+      bitrise.io:
+        stack: linux-docker-android-20.04
+    before_run:
+    - _setup
+    - _test
+    after_run:
+    - _teardown
+    steps:
     - git::https://github.com/bitrise-steplib/steps-react-native-bundle.git@use-npx-react-native-if-available:
         inputs:
         - platform: android
@@ -37,14 +62,6 @@ workflows:
         - project_location: $PROJECT_LOCATION
         - module: $MODULE
         - variant: $VARIANT
-    - cocoapods-install@2: { }
-    - xcode-archive@4:
-        inputs:
-        - project_path: $BITRISE_PROJECT_PATH
-        - scheme: $BITRISE_SCHEME
-        - distribution_method: $BITRISE_DISTRIBUTION_METHOD
-        - configuration: Release
-        - automatic_code_signing: api-key
 
   _setup:
     steps:
