@@ -15,8 +15,8 @@ workflows:
 
   deploy:
     after_run:
-    - _deploy-ios
-    # - _deploy-android
+    # - _deploy-ios
+    - _deploy-android
 
   _deploy-ios:
     description: Tests, builds and deploys the iOS version of the app using *Deploy to bitrise.io* Step.
@@ -32,8 +32,7 @@ workflows:
         - entry_file: index.js
     - restore-cocoapods-cache@1: { }
     - cocoapods-install@2: { }
-    # - save-cocoapods-cache@1: { }
-    - git::https://github.com/bitrise-steplib/bitrise-step-save-cocoapods-cache.git@ACI-192-nested-pods-folder: { }
+    - save-cocoapods-cache@1: { }
     - xcode-archive@4:
         inputs:
         - project_path: $BITRISE_PROJECT_PATH
