@@ -32,7 +32,8 @@ workflows:
         - entry_file: index.js
     - restore-cocoapods-cache@1: { }
     - cocoapods-install@2: { }
-    - save-cocoapods-cache@1: { }
+    # - save-cocoapods-cache@1: { }
+    - git::https://github.com/bitrise-steplib/bitrise-step-save-cocoapods-cache.git@ACI-192-nested-pods-folder: { }
     - xcode-archive@4:
         inputs:
         - project_path: $BITRISE_PROJECT_PATH
