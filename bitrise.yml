@@ -3,125 +3,68 @@ format_version: "11"
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: react-native
 
+trigger_map:
+- pull_request_source_branch: "*"
+  pull_request_target_branch: main
+  workflow: primary
+
 workflows:
 
   primary:
-    description: Runs tests.
+    description: Runs JavaScript tests, and verifies iOS and Android builds
     before_run:
     - _setup
-    - _test
     after_run:
-    - _teardown
-
-  deploy:
-    after_run:
-    - _deploy-ios
-    # - _deploy-android
-
-  _deploy-ios:
-    description: Tests, builds and deploys the iOS version of the app using *Deploy to bitrise.io* Step.
-    before_run:
-    - _setup
-    - _test
-    after_run:
-    - _teardown
-    steps:
-    - git::https://github.com/bitrise-steplib/steps-react-native-bundle.git@use-npx-react-native-if-available:
-        inputs:
-        - platform: ios
-        - entry_file: index.js
-    # - restore-cocoapods-cache@1: { }
-    - cocoapods-install@2: { }
-    # - save-cocoapods-cache@1: { }
-    # - git::https://github.com/bitrise-steplib/bitrise-step-save-cocoapods-cache.git@ACI-192-nested-pods-folder: { }
-    - xcode-archive@4:
-        inputs:
-        - configuration: Release
-        - distribution_method: $BITRISE_DISTRIBUTION_METHOD
-        - force_code_sign_identity: $BITRISE_CODE_SIGNING_IDENTITY
-        - force_provisioining_profile_specifier: ""
-        - force_provisioning_profile: $BITRISE_PROFILE_ID
-        - project_path: $BITRISE_PROJECT_PATH
-        - scheme: $BITRISE_SCHEME
-        - team_id: $BITRISE_TEAM_ID
-
-  _deploy-android:
-    description: Tests, builds and deploys the app using *Deploy to bitrise.io* Step.
-    before_run:
-    - _setup
-    - _test
-    after_run:
-    - _teardown
-    steps:
-    - git::https://github.com/bitrise-steplib/steps-react-native-bundle.git@use-npx-react-native-if-available:
-        inputs:
-        - platform: android
-        - entry_file: index.js
-    - install-missing-android-tools@3:
-        inputs:
-        - gradlew_path: $PROJECT_LOCATION/gradlew
-    # - restore-gradle-cache@1: { }
-    - android-build@1:
-        inputs:
-        - project_location: $PROJECT_LOCATION
-        - module: $MODULE
-        - variant: $VARIANT
-    # - save-gradle-cache@1: { }
+    - _test-js
+    - _build-ios
+    - _build-android
 
   _setup:
     steps:
     - activate-ssh-key@4: { }
     - git-clone@6: { }
-    # - restore-npm-cache@1: { }
+    - restore-npm-cache@1: { }
     - npm@1:
         inputs:
         - command: install
-    # - save-npm-cache@1: { }
+    - save-npm-cache@1: { }
 
-  _test:
+  _test-js:
     steps:
     - npm@1:
         inputs:
         - command: test
 
-  _teardown:
+  _build-ios:
+    description: Builds the iOS version of the app for use in Simulators
     steps:
-    - deploy-to-bitrise-io@2: { }
+    - git::https://github.com/bitrise-steplib/steps-react-native-bundle.git@use-npx-react-native-if-available:
+        inputs:
+        - entry_file: index.js
+        - platform: ios
+    - restore-cocoapods-cache@1: { }
+    - cocoapods-install@2: { }
+    - save-cocoapods-cache@1: { }
+    - xcode-build-for-simulator@0:
+        inputs:
+        - project_path: ios/BitriseReactNativeSample.xcworkspace
+        - scheme: BitriseReactNativeSample
+        - simulator_device: iPhone 13
 
-trigger_map:
-- pull_request_source_branch: "*"
-  workflow: deploy
-  pull_request_target_branch: main
-
-app:
-  envs:
-  - opts:
-      is_expand: false
-    WORKDIR: .
-  - opts:
-      is_expand: false
-    PROJECT_LOCATION: android
-  - opts:
-      is_expand: false
-    MODULE: app
-  - opts:
-      is_expand: false
-    VARIANT: Debug
-  - opts:
-      is_expand: false
-    BITRISE_PROJECT_PATH: ios/BitriseReactNativeSample.xcworkspace
-  - opts:
-      is_expand: false
-    BITRISE_SCHEME: BitriseReactNativeSample
-  - opts:
-      is_expand: false
-    BITRISE_DISTRIBUTION_METHOD: development
-  - opts:
-      is_expand: false
-    BITRISE_CODE_SIGNING_IDENTITY: "iPhone Developer: Dev Portal Bot Bitrise (E89JV3W9K4)"
-  - opts:
-      is_expand: false
-    BITRISE_PROFILE_ID: b103a1f0-1f51-4d53-a41f-c08719676e94
-  - opts:
-      is_expand: false
-    BITRISE_TEAM_ID: 72SA8V3WYL
+  _build-android:
+    description: Builds the Android version of the app for use in emulators
+    steps:
+    - git::https://github.com/bitrise-steplib/steps-react-native-bundle.git@use-npx-react-native-if-available:
+        inputs:
+        - entry_file: index.js
+        - platform: android
+    - install-missing-android-tools@3:
+        inputs:
+        - gradlew_path: android/gradlew
+    - restore-gradle-cache@1: { }
+    - android-build@1:
+        inputs:
+        - module: app
+        - project_location: android
+        - variant: debug
+    - save-gradle-cache@1: { }
