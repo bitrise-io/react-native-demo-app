@@ -3,10 +3,6 @@ format_version: "11"
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: react-native
 
-meta:
-  bitrise.io:
-    stack: linux-docker-android-20.04
-
 workflows:
 
   primary:
@@ -19,8 +15,8 @@ workflows:
 
   deploy:
     after_run:
-    # - _deploy-ios
-    - _deploy-android
+    - _deploy-ios
+    # - _deploy-android
 
   _deploy-ios:
     description: Tests, builds and deploys the iOS version of the app using *Deploy to bitrise.io* Step.
@@ -34,7 +30,9 @@ workflows:
         inputs:
         - platform: ios
         - entry_file: index.js
+    - restore-cocoapods-cache@1: { }
     - cocoapods-install@2: { }
+    - save-cocoapods-cache@1: { }
     - xcode-archive@4:
         inputs:
         - project_path: $BITRISE_PROJECT_PATH
@@ -58,11 +56,13 @@ workflows:
     - install-missing-android-tools@3:
         inputs:
         - gradlew_path: $PROJECT_LOCATION/gradlew
+    - restore-gradle-cache@1: { }
     - android-build@1:
         inputs:
         - project_location: $PROJECT_LOCATION
         - module: $MODULE
         - variant: $VARIANT
+    - save-gradle-cache@1: { }
 
   _setup:
     steps:
