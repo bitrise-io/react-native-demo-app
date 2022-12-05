@@ -36,11 +36,14 @@ workflows:
     # - git::https://github.com/bitrise-steplib/bitrise-step-save-cocoapods-cache.git@ACI-192-nested-pods-folder: { }
     - xcode-archive@4:
         inputs:
+        - configuration: Release
+        - distribution_method: $BITRISE_DISTRIBUTION_METHOD
+        - force_code_sign_identity: $BITRISE_CODE_SIGNING_IDENTITY
+        - force_provisioining_profile_specifier: ""
+        - force_provisioning_profile: $BITRISE_PROFILE_ID
         - project_path: $BITRISE_PROJECT_PATH
         - scheme: $BITRISE_SCHEME
-        - distribution_method: $BITRISE_DISTRIBUTION_METHOD
-        - configuration: Release
-        - automatic_code_signing: api-key
+        - team_id: $BITRISE_TEAM_ID
 
   _deploy-android:
     description: Tests, builds and deploys the app using *Deploy to bitrise.io* Step.
@@ -69,11 +72,11 @@ workflows:
     steps:
     - activate-ssh-key@4: { }
     - git-clone@6: { }
-    - restore-npm-cache@1: { }
+    # - restore-npm-cache@1: { }
     - npm@1:
         inputs:
         - command: install
-    - save-npm-cache@1: { }
+    # - save-npm-cache@1: { }
 
   _test:
     steps:
@@ -113,3 +116,12 @@ app:
   - opts:
       is_expand: false
     BITRISE_DISTRIBUTION_METHOD: development
+  - opts:
+      is_expand: false
+    BITRISE_CODE_SIGNING_IDENTITY: "iPhone Developer: Dev Portal Bot Bitrise (E89JV3W9K4)"
+  - opts:
+      is_expand: false
+    BITRISE_PROFILE_ID: b103a1f0-1f51-4d53-a41f-c08719676e94
+  - opts:
+      is_expand: false
+    BITRISE_TEAM_ID: 72SA8V3WYL
