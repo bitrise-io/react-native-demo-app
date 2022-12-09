@@ -38,7 +38,7 @@ workflows:
   _build-ios:
     description: Builds the iOS version of the app for use in Simulators
     steps:
-    - git::https://github.com/bitrise-steplib/steps-react-native-bundle.git@use-npx-react-native-if-available:
+    - react-native-bundle@1:
         inputs:
         - entry_file: index.js
         - platform: ios
@@ -54,7 +54,7 @@ workflows:
   _build-android:
     description: Builds the Android version of the app for use in emulators
     steps:
-    - git::https://github.com/bitrise-steplib/steps-react-native-bundle.git@use-npx-react-native-if-available:
+    - react-native-bundle@1:
         inputs:
         - entry_file: index.js
         - platform: android
