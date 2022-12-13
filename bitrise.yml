@@ -3,88 +3,68 @@ format_version: "11"
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: react-native
 
+trigger_map:
+- push_branch: "*"
+  workflow: primary
+- pull_request_source_branch: "*"
+  workflow: primary
+
 workflows:
 
   primary:
-    description: |
-      Runs tests.
+    description: Runs JavaScript tests, and verifies iOS and Android builds
+    before_run:
+    - _setup
+    after_run:
+    - _test-js
+    - _build-ios
+    - _build-android
 
-      Next steps:
-      - Check out [Getting started with React Native apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-react-native-apps.html).
+  _setup:
     steps:
-    - activate-ssh-key@4: { }
     - git-clone@6: { }
-    - yarn@0:
+    - restore-npm-cache@1: { }
+    - npm@1:
         inputs:
-        - workdir: $WORKDIR
         - command: install
-    - yarn@0:
-        inputs:
-        - workdir: $WORKDIR
-        - command: test
-    - deploy-to-bitrise-io@2: { }
+    - save-npm-cache@1: { }
 
-  deploy:
-    description: |
-      Tests, builds and deploys the app using *Deploy to bitrise.io* Step.
-
-      Next steps:
-      - Set up an [Apple service with API key](https://devcenter.bitrise.io/en/accounts/connecting-to-services/connecting-to-an-apple-service-with-api-key.html).
-      - Check out [Getting started with React Native apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-react-native-apps.html).
+  _test-js:
     steps:
-    - activate-ssh-key@4: { }
-    - git-clone@6: { }
-    - yarn@0:
+    - npm@1:
         inputs:
-        - workdir: $WORKDIR
-        - command: install
-    - yarn@0:
-        inputs:
-        - workdir: $WORKDIR
         - command: test
+
+  _build-ios:
+    description: Builds the iOS version of the app for use in Simulators
+    steps:
+    - react-native-bundle@1:
+        inputs:
+        - entry_file: index.js
+        - platform: ios
+    - restore-cocoapods-cache@1: { }
+    - cocoapods-install@2: { }
+    - save-cocoapods-cache@1: { }
+    - xcode-build-for-simulator@0:
+        inputs:
+        - project_path: ios/BitriseReactNativeSample.xcworkspace
+        - scheme: BitriseReactNativeSample
+        - simulator_device: iPhone 13
+
+  _build-android:
+    description: Builds the Android version of the app for use in emulators
+    steps:
+    - react-native-bundle@1:
+        inputs:
+        - entry_file: index.js
+        - platform: android
     - install-missing-android-tools@3:
         inputs:
-        - gradlew_path: $PROJECT_LOCATION/gradlew
+        - gradlew_path: android/gradlew
+    - restore-gradle-cache@1: { }
     - android-build@1:
         inputs:
-        - project_location: $PROJECT_LOCATION
-        - module: $MODULE
-        - variant: $VARIANT
-    - cocoapods-install@2: { }
-    - xcode-archive@4:
-        inputs:
-        - project_path: $BITRISE_PROJECT_PATH
-        - scheme: $BITRISE_SCHEME
-        - distribution_method: $BITRISE_DISTRIBUTION_METHOD
-        - configuration: Release
-        - automatic_code_signing: api-key
-    - deploy-to-bitrise-io@2: { }
-
-trigger_map:
-- pull_request_source_branch: "*"
-  workflow: primary
-  pull_request_target_branch: main
-
-app:
-  envs:
-  - opts:
-      is_expand: false
-    WORKDIR: .
-  - opts:
-      is_expand: false
-    PROJECT_LOCATION: android
-  - opts:
-      is_expand: false
-    MODULE: app
-  - opts:
-      is_expand: false
-    VARIANT: Debug
-  - opts:
-      is_expand: false
-    BITRISE_PROJECT_PATH: ios/BitriseReactNativeSample.xcworkspace
-  - opts:
-      is_expand: false
-    BITRISE_SCHEME: BitriseReactNativeSample
-  - opts:
-      is_expand: false
-    BITRISE_DISTRIBUTION_METHOD: development
+        - module: app
+        - project_location: android
+        - variant: debug
+    - save-gradle-cache@1: { }
