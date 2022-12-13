@@ -22,7 +22,6 @@ workflows:
 
   _setup:
     steps:
-    - activate-ssh-key@4: { }
     - git-clone@6: { }
     - restore-npm-cache@1: { }
     - npm@1:
