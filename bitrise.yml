@@ -26,7 +26,7 @@ stages:
 workflows:
   _setup:
     steps:
-    - git-clone@6: {}
+    - git-clone@7: {}
     - restore-npm-cache@1: {}
     - npm@1:
         inputs:
