@@ -37,6 +37,7 @@ workflows:
     - _setup
     steps:
     - npm@1:
+        title: Run tests
         inputs:
         - command: test
   build-ios:
