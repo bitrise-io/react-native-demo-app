@@ -69,7 +69,7 @@ workflows:
         inputs:
         - module: app
         - project_location: android
-        - variant: debug
+        - variant: release
     - save-gradle-cache@1: {}
 
 meta:
