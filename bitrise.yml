@@ -54,6 +54,7 @@ workflows:
         - project_path: ios/BitriseReactNativeSample.xcworkspace
         - scheme: BitriseReactNativeSample
         - simulator_device: iPhone 13
+        - configuration: Debug
     - save-cocoapods-cache@1: {}
   build-android:
     before_run:
@@ -69,7 +70,7 @@ workflows:
         inputs:
         - module: app
         - project_location: android
-        - variant: release
+        - variant: debug
     - save-gradle-cache@1: {}
     meta:
       bitrise.io:
