@@ -53,6 +53,7 @@ workflows:
         - configuration: Debug
     - save-cocoapods-cache@1: {}
   build-android:
+    project_type: android
     before_run:
     - _setup
     description: Builds the Android version of the app for use in emulators
