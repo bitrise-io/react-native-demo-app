@@ -71,7 +71,11 @@ workflows:
         - project_location: android
         - variant: release
     - save-gradle-cache@1: {}
+    meta:
+      bitrise.io:
+        stack: linux-docker-android-20.04
+        machine_type_id: elite
 
 meta:
   bitrise.io:
-    machine_type_id: g2.8core
+    machine_type_id: g2-m1.8core
