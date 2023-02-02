@@ -2,17 +2,14 @@
 format_version: '11'
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: react-native
-
 trigger_map:
 - pull_request_source_branch: "*"
   pipeline: primary
-
 pipelines:
   primary:
     description: Runs JavaScript tests, and verifies iOS and Android builds
     stages:
     - test-and-build-stage: {}
-
 stages:
   test-and-build-stage:
     abort_on_fail: true
@@ -20,7 +17,6 @@ stages:
     - test-js: {}
     - build-ios: {}
     - build-android: {}
-
 workflows:
   _setup:
     steps:
