@@ -1,70 +1,82 @@
 ---
-format_version: "11"
+format_version: '11'
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: react-native
 
 trigger_map:
-- push_branch: "*"
-  workflow: primary
 - pull_request_source_branch: "*"
-  workflow: primary
+  pipeline: primary
 
-workflows:
-
+pipelines:
   primary:
     description: Runs JavaScript tests, and verifies iOS and Android builds
-    before_run:
-    - _setup
-    after_run:
-    - _test-js
-    - _build-ios
-    - _build-android
+    stages:
+    - test-and-build-stage: {}
 
+stages:
+  test-and-build-stage:
+    abort_on_fail: true
+    workflows:
+    - test-js: {}
+    - build-ios: {}
+    - build-android: {}
+
+workflows:
   _setup:
     steps:
-    - git-clone@6: { }
-    - restore-npm-cache@1: { }
+    - git-clone@7: {}
+    - restore-npm-cache@1: {}
     - npm@1:
         inputs:
         - command: install
-    - save-npm-cache@1: { }
-
-  _test-js:
+    - save-npm-cache@1: {}
+  test-js:
+    before_run:
+    - _setup
     steps:
     - npm@1:
+        title: Run tests
         inputs:
         - command: test
-
-  _build-ios:
+  build-ios:
+    before_run:
+    - _setup
     description: Builds the iOS version of the app for use in Simulators
     steps:
     - react-native-bundle@1:
         inputs:
         - entry_file: index.js
         - platform: ios
-    - restore-cocoapods-cache@1: { }
-    - cocoapods-install@2: { }
-    - save-cocoapods-cache@1: { }
+    - restore-cocoapods-cache@1: {}
+    - cocoapods-install@2: {}
     - xcode-build-for-simulator@0:
         inputs:
         - project_path: ios/BitriseReactNativeSample.xcworkspace
         - scheme: BitriseReactNativeSample
         - simulator_device: iPhone 13
-
-  _build-android:
+        - configuration: Debug
+    - save-cocoapods-cache@1: {}
+  build-android:
+    before_run:
+    - _setup
     description: Builds the Android version of the app for use in emulators
     steps:
     - react-native-bundle@1:
         inputs:
         - entry_file: index.js
         - platform: android
-    - install-missing-android-tools@3:
-        inputs:
-        - gradlew_path: android/gradlew
-    - restore-gradle-cache@1: { }
+    - restore-gradle-cache@1: {}
     - android-build@1:
         inputs:
         - module: app
         - project_location: android
         - variant: debug
-    - save-gradle-cache@1: { }
+    - save-gradle-cache@1: {}
+    meta:
+      bitrise.io:
+        stack: linux-docker-android-20.04
+        machine_type_id: elite
+
+meta:
+  bitrise.io:
+    machine_type_id: g2-m1.8core
