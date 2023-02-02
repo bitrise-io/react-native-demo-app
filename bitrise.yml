@@ -75,7 +75,3 @@ workflows:
     meta:
       bitrise.io:
         stack: linux-docker-android-20.04
-
-meta:
-  bitrise.io:
-    machine_type_id: g2-m1.8core
