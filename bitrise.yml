@@ -68,3 +68,6 @@ workflows:
         - project_location: android
         - variant: debug
     - save-gradle-cache@1: {}
+    meta:
+      bitrise.io:
+        stack: linux-docker-android-20.04
