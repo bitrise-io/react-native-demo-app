@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* BitriseReactNativeSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BitriseReactNativeSampleTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-BitriseReactNativeSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-BitriseReactNativeSample.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-BitriseReactNativeSample-BitriseReactNativeSampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-BitriseReactNativeSample-BitriseReactNativeSampleTests.a */; };
+		2AFB8DD90D9FC46875DCF990 /* libPods-React Native Demo-BitriseReactNativeSampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2FF1BBCCF7409040F62700 /* libPods-React Native Demo-BitriseReactNativeSampleTests.a */; };
+		4BF0713D4E5F6DCE9D69629D /* libPods-React Native Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4352DF50C848A0AF82D23A2 /* libPods-React Native Demo.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -30,20 +30,24 @@
 		00E356EE1AD99517003FC87E /* BitriseReactNativeSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitriseReactNativeSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* BitriseReactNativeSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BitriseReactNativeSampleTests.m; sourceTree = "<group>"; };
+		11E3343B88FB4F17949C137F /* Pods-React Native Demo-BitriseReactNativeSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-React Native Demo-BitriseReactNativeSampleTests.release.xcconfig"; path = "Target Support Files/Pods-React Native Demo-BitriseReactNativeSampleTests/Pods-React Native Demo-BitriseReactNativeSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* BitriseReactNativeSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitriseReactNativeSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BitriseReactNativeSample/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = BitriseReactNativeSample/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BitriseReactNativeSample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BitriseReactNativeSample/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BitriseReactNativeSample/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-BitriseReactNativeSample-BitriseReactNativeSampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BitriseReactNativeSample-BitriseReactNativeSampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-BitriseReactNativeSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitriseReactNativeSample.debug.xcconfig"; path = "Target Support Files/Pods-BitriseReactNativeSample/Pods-BitriseReactNativeSample.debug.xcconfig"; sourceTree = "<group>"; };
+		4A2FF1BBCCF7409040F62700 /* libPods-React Native Demo-BitriseReactNativeSampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-React Native Demo-BitriseReactNativeSampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5709B34CF0A7D63546082F79 /* Pods-BitriseReactNativeSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitriseReactNativeSample.release.xcconfig"; path = "Target Support Files/Pods-BitriseReactNativeSample/Pods-BitriseReactNativeSample.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests.debug.xcconfig"; path = "Target Support Files/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-BitriseReactNativeSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BitriseReactNativeSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BitriseReactNativeSample/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests.release.xcconfig"; path = "Target Support Files/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		9B8BF0C8D050676109051AF1 /* Pods-React Native Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-React Native Demo.release.xcconfig"; path = "Target Support Files/Pods-React Native Demo/Pods-React Native Demo.release.xcconfig"; sourceTree = "<group>"; };
+		A1828213ACC823525F0D21FD /* Pods-React Native Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-React Native Demo.debug.xcconfig"; path = "Target Support Files/Pods-React Native Demo/Pods-React Native Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		C4352DF50C848A0AF82D23A2 /* libPods-React Native Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-React Native Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FAE55D4432A5CD3428780E8B /* Pods-React Native Demo-BitriseReactNativeSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-React Native Demo-BitriseReactNativeSampleTests.debug.xcconfig"; path = "Target Support Files/Pods-React Native Demo-BitriseReactNativeSampleTests/Pods-React Native Demo-BitriseReactNativeSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-BitriseReactNativeSample-BitriseReactNativeSampleTests.a in Frameworks */,
+				2AFB8DD90D9FC46875DCF990 /* libPods-React Native Demo-BitriseReactNativeSampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-BitriseReactNativeSample.a in Frameworks */,
+				4BF0713D4E5F6DCE9D69629D /* libPods-React Native Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-BitriseReactNativeSample.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-BitriseReactNativeSample-BitriseReactNativeSampleTests.a */,
+				C4352DF50C848A0AF82D23A2 /* libPods-React Native Demo.a */,
+				4A2FF1BBCCF7409040F62700 /* libPods-React Native Demo-BitriseReactNativeSampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,6 +148,10 @@
 				5709B34CF0A7D63546082F79 /* Pods-BitriseReactNativeSample.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests.release.xcconfig */,
+				A1828213ACC823525F0D21FD /* Pods-React Native Demo.debug.xcconfig */,
+				9B8BF0C8D050676109051AF1 /* Pods-React Native Demo.release.xcconfig */,
+				FAE55D4432A5CD3428780E8B /* Pods-React Native Demo-BitriseReactNativeSampleTests.debug.xcconfig */,
+				11E3343B88FB4F17949C137F /* Pods-React Native Demo-BitriseReactNativeSampleTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -272,15 +280,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BitriseReactNativeSample/Pods-BitriseReactNativeSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-React Native Demo/Pods-React Native Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BitriseReactNativeSample/Pods-BitriseReactNativeSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-React Native Demo/Pods-React Native Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BitriseReactNativeSample/Pods-BitriseReactNativeSample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-React Native Demo/Pods-React Native Demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -298,7 +306,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-React Native Demo-BitriseReactNativeSampleTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -320,7 +328,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BitriseReactNativeSample-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-React Native Demo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -333,15 +341,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-React Native Demo-BitriseReactNativeSampleTests/Pods-React Native Demo-BitriseReactNativeSampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-React Native Demo-BitriseReactNativeSampleTests/Pods-React Native Demo-BitriseReactNativeSampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-React Native Demo-BitriseReactNativeSampleTests/Pods-React Native Demo-BitriseReactNativeSampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -350,15 +358,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BitriseReactNativeSample/Pods-BitriseReactNativeSample-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-React Native Demo/Pods-React Native Demo-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BitriseReactNativeSample/Pods-BitriseReactNativeSample-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-React Native Demo/Pods-React Native Demo-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BitriseReactNativeSample/Pods-BitriseReactNativeSample-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-React Native Demo/Pods-React Native Demo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -367,15 +375,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-React Native Demo-BitriseReactNativeSampleTests/Pods-React Native Demo-BitriseReactNativeSampleTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-React Native Demo-BitriseReactNativeSampleTests/Pods-React Native Demo-BitriseReactNativeSampleTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests/Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-React Native Demo-BitriseReactNativeSampleTests/Pods-React Native Demo-BitriseReactNativeSampleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -430,7 +438,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests.debug.xcconfig */;
+			baseConfigurationReference = FAE55D4432A5CD3428780E8B /* Pods-React Native Demo-BitriseReactNativeSampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -461,7 +469,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-BitriseReactNativeSample-BitriseReactNativeSampleTests.release.xcconfig */;
+			baseConfigurationReference = 11E3343B88FB4F17949C137F /* Pods-React Native Demo-BitriseReactNativeSampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -489,7 +497,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-BitriseReactNativeSample.debug.xcconfig */;
+			baseConfigurationReference = A1828213ACC823525F0D21FD /* Pods-React Native Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -520,7 +528,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-BitriseReactNativeSample.release.xcconfig */;
+			baseConfigurationReference = 9B8BF0C8D050676109051AF1 /* Pods-React Native Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
