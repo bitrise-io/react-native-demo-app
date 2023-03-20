@@ -1,1 +1,1 @@
-# getting-started-react-native-sample-app
+# react-native-demo-app
