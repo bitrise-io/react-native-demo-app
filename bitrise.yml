@@ -47,6 +47,7 @@ workflows:
         title: Run tests
         inputs:
         - command: test
+    - deploy-to-bitrise-io@2: {}
 
   deploy-ios-debug:
     before_run:
