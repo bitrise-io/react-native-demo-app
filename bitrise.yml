@@ -9,14 +9,26 @@ pipelines:
   primary:
     description: Runs JavaScript tests, and verifies iOS and Android builds
     stages:
-    - test-and-build-stage: {}
+    - test-and-build-debug: {}
+  deploy:
+    stages:
+      - test-and-build-release: {}
+    
+
 stages:
-  test-and-build-stage:
+  test-and-build-debug:
     abort_on_fail: true
     workflows:
     - test-js: {}
-    - build-ios: {}
-    - build-android: {}
+    - deploy-ios-debug: {}
+    - deploy-android-debug: {}
+  test-and-build-release:
+    abort_on_fail: true
+    workflows:
+    - test-js: {}
+    - deploy-ios-release: {}
+    - deploy-android-release: {}
+
 workflows:
   _setup:
     steps:
@@ -26,6 +38,7 @@ workflows:
         inputs:
         - command: install
     - save-npm-cache@1: {}
+
   test-js:
     before_run:
     - _setup
@@ -34,7 +47,8 @@ workflows:
         title: Run tests
         inputs:
         - command: test
-  build-ios:
+
+  deploy-ios-debug:
     before_run:
     - _setup
     description: Builds the iOS version of the app for use in Simulators
@@ -51,8 +65,10 @@ workflows:
         - scheme: BitriseReactNativeSample
         - simulator_device: iPhone 13
         - configuration: Debug
+    - deploy-to-bitrise-io@2: {}
     - save-cocoapods-cache@1: {}
-  build-android:
+
+  deploy-android-debug:
     before_run:
     - _setup
     description: Builds the Android version of the app for use in emulators
@@ -67,6 +83,48 @@ workflows:
         - module: app
         - project_location: android
         - variant: debug
+    - deploy-to-bitrise-io@2: {}
+    - save-gradle-cache@1: {}
+    meta:
+      bitrise.io:
+        stack: linux-docker-android-20.04
+
+  deploy-ios-release:
+    before_run:
+    - _setup
+    description: Builds the iOS version of the app for use in Simulators
+    steps:
+    - react-native-bundle@1:
+        inputs:
+        - entry_file: index.js
+        - platform: ios
+    - restore-cocoapods-cache@1: {}
+    - cocoapods-install@2: {}
+    - xcode-build-for-simulator@0:
+        inputs:
+        - project_path: ios/BitriseReactNativeSample.xcworkspace
+        - scheme: BitriseReactNativeSample
+        - simulator_device: iPhone 13
+        - configuration: Release
+    - deploy-to-bitrise-io@2: {}
+    - save-cocoapods-cache@1: {}
+
+  deploy-android-release:
+    before_run:
+    - _setup
+    description: Builds the Android version of the app for use in emulators
+    steps:
+    - react-native-bundle@1:
+        inputs:
+        - entry_file: index.js
+        - platform: android
+    - restore-gradle-cache@1: {}
+    - android-build@1:
+        inputs:
+        - module: app
+        - project_location: android
+        - variant: release
+    - deploy-to-bitrise-io@2: {}
     - save-gradle-cache@1: {}
     meta:
       bitrise.io:
