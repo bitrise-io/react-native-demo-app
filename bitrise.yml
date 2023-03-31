@@ -50,6 +50,7 @@ workflows:
         - command: run test-ci
     - custom-test-results-export:
         inputs:
+        - test_name: Demo Test
         - search_pattern: test-report.junit.xml
     - deploy-to-bitrise-io@2: {}
 
