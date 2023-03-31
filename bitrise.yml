@@ -41,8 +41,6 @@ workflows:
     - save-npm-cache@1: {}
 
   test-js:
-    envs:
-    - JEST_JUNIT_OUTPUT_DIR: $BITRISE_DEPLOY_DIR
     before_run:
     - _setup
     steps:
@@ -50,6 +48,9 @@ workflows:
         title: Run tests
         inputs:
         - command: run test-ci
+    - custom-test-results-export:
+        inputs:
+        - search_pattern: test-report.junit.xml
     - deploy-to-bitrise-io@2: {}
 
   primary:
