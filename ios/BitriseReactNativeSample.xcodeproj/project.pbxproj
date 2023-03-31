@@ -31,7 +31,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* BitriseReactNativeSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BitriseReactNativeSampleTests.m; sourceTree = "<group>"; };
 		11E3343B88FB4F17949C137F /* Pods-React Native Demo-BitriseReactNativeSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-React Native Demo-BitriseReactNativeSampleTests.release.xcconfig"; path = "Target Support Files/Pods-React Native Demo-BitriseReactNativeSampleTests/Pods-React Native Demo-BitriseReactNativeSampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* BitriseReactNativeSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitriseReactNativeSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* React Native Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "React Native Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BitriseReactNativeSample/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = BitriseReactNativeSample/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BitriseReactNativeSample/Images.xcassets; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* BitriseReactNativeSample.app */,
+				13B07F961A680F5B00A75B9A /* React Native Demo.app */,
 				00E356EE1AD99517003FC87E /* BitriseReactNativeSampleTests.xctest */,
 			);
 			name = Products;
@@ -199,7 +199,7 @@
 			);
 			name = "React Native Demo";
 			productName = BitriseReactNativeSample;
-			productReference = 13B07F961A680F5B00A75B9A /* BitriseReactNativeSample.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* React Native Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -519,7 +519,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.bitrise.demoapps.reactnative;
-				PRODUCT_NAME = BitriseReactNativeSample;
+				PRODUCT_NAME = "React Native Demo";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "BitriseBot-Wildcard";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -551,7 +551,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.bitrise.demoapps.reactnative;
-				PRODUCT_NAME = BitriseReactNativeSample;
+				PRODUCT_NAME = "React Native Demo";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "BitriseBot-Wildcard";
 				SWIFT_VERSION = 5.0;
