@@ -35,11 +35,14 @@ workflows:
     - git-clone@7: {}
     - restore-npm-cache@1: {}
     - npm@1:
+        title: Install dependencies
         inputs:
         - command: install
     - save-npm-cache@1: {}
 
   test-js:
+    envs:
+    - JEST_JUNIT_OUTPUT_DIR: $BITRISE_DEPLOY_DIR
     before_run:
     - _setup
     steps:
