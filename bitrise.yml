@@ -19,13 +19,13 @@ stages:
   test-and-build-debug:
     abort_on_fail: true
     workflows:
-    - test-js: {}
+    - _test-js: {}
     - deploy-ios-debug: {}
     - deploy-android-debug: {}
   test-and-build-release:
     abort_on_fail: true
     workflows:
-    - test-js: {}
+    - _test-js: {}
     - deploy-ios-release: {}
     - deploy-android-release: {}
 
@@ -39,7 +39,7 @@ workflows:
         - command: install
     - save-npm-cache@1: {}
 
-  test-js:
+  _test-js:
     before_run:
     - _setup
     steps:
@@ -52,7 +52,7 @@ workflows:
   primary:
     description: Runs JavaScript tests and deploys a test report.
     steps:
-    - test-js: {}
+    - _test-js: {}
 
   deploy-ios-debug:
     before_run:
