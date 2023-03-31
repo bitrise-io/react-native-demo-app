@@ -51,7 +51,7 @@ workflows:
     - custom-test-results-export:
         inputs:
         - test_name: Demo Test
-        - search_pattern: *junit.xml
+        - search_pattern: "*/reports/*"
     - deploy-to-bitrise-io@2: {}
 
   primary:
