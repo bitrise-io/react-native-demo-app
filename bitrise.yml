@@ -49,7 +49,7 @@ workflows:
     - npm@1:
         title: Run tests
         inputs:
-        - command: test-ci
+        - command: run test-ci
     - deploy-to-bitrise-io@2: {}
 
   primary:
