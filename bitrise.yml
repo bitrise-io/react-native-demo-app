@@ -51,8 +51,8 @@ workflows:
 
   primary:
     description: Runs JavaScript tests and deploys a test report.
-    steps:
-    - test-js: {}
+    before_run:
+    - test-js
 
   deploy-ios-debug:
     before_run:
