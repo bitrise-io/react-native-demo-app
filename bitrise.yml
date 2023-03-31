@@ -4,7 +4,7 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: react-native
 trigger_map:
 - pull_request_source_branch: "*"
-  pipeline: primary
+  workflow: primary
 
 pipelines:
   deploy-demo:
@@ -13,7 +13,7 @@ pipelines:
     - test-and-build-debug: {}
   deploy:
     stages:
-      - test-and-build-release: {}
+    - test-and-build-release: {}
 
 stages:    
   test-and-build-debug:
