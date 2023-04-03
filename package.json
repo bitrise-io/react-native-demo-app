@@ -7,10 +7,12 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
+    "test-ci": "jest --ci",
     "lint": "eslint .",
     "postinstall": "react-native-inhibit-warnings"
   },
   "dependencies": {
+    "jest-junit": "^15.0.0",
     "react": "18.2.0",
     "react-native": "0.71.1"
   },
@@ -26,6 +28,16 @@
     "react-test-renderer": "18.1.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "outputDirectory": "<rootDir>/reports",
+          "outputName": "test-report-junit.xml"
+        }
+      ]
+    ]
   }
 }
